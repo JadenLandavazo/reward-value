@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 
 class RewardValue{
-    double cashVal; 
-    int miles; 
+    double cashVal;
     public static final double MILES_TO_CASH_CONVERSION_RATE = 0.0035;
    
     RewardValue(double cash){
@@ -11,7 +10,7 @@ class RewardValue{
     }
 
     RewardValue(int milesC){
-        this.miles = milesC;
+        this.cashVal = convertToCash(milesC);
         
     }
 
@@ -21,14 +20,14 @@ class RewardValue{
 
     int getMilesValue(){
         
-        return miles; 
+        return convertToMiles(this.cashVal);
  
     }
-    private static int convertToMiles(double cashValue) {
+      int convertToMiles(double cashValue) {
         return (int) (cashValue / MILES_TO_CASH_CONVERSION_RATE);
     }
-    
-    private static double convertToCash(int milesValue) {
+
+      double convertToCash(int milesValue) {
         return milesValue * MILES_TO_CASH_CONVERSION_RATE;
     }
 
