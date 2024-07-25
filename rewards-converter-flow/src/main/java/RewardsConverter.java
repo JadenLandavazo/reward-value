@@ -4,24 +4,32 @@ import java.util.Scanner;
 class RewardValue{
     double cashVal; 
     int miles; 
+    public static final double MILES_TO_CASH_CONVERSION_RATE = 0.0035;
+   
     RewardValue(double cash){
         this.cashVal = cash; 
     }
 
     RewardValue(int milesC){
-        this.miles = milesC; 
+        this.miles = milesC;
+        
     }
 
-    double getCashValue(double cash){
-        return cash; 
+    double getCashValue(){
+        return cashVal; 
     }
 
-    int getMilesValue(double cash){
-        double rate = 0.0035; 
-        double toCash = cash * rate; 
-
-        return (int)toCash; 
+    int getMilesValue(){
+        
+        return miles; 
  
+    }
+    private static int convertToMiles(double cashValue) {
+        return (int) (cashValue / MILES_TO_CASH_CONVERSION_RATE);
+    }
+    
+    private static double convertToCash(int milesValue) {
+        return milesValue * MILES_TO_CASH_CONVERSION_RATE;
     }
 
 
